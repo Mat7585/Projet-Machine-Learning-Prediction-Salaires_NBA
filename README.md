@@ -23,7 +23,7 @@ To avoid this issue, I reframed the problem and instead predicted the total sala
 
 6/ Outlier detection and capping when necessary to limit the impact of extreme values.  
 
-7/ Encoded categorical features into numerical representations (e.g., one-hot encoding) for model compatibility.  
+7/ Applied one-hot encoding to categorical features for the Linear Regression model. This preprocessing was not necessary for XGBoost, as it can handle categorical features natively when enable_categorical=True is used.
 
 
 ...
@@ -40,4 +40,4 @@ I tested a log transformation on the target variable (Y) and applied StandardSca
 <img width="797" height="90" alt="image" src="https://github.com/user-attachments/assets/2055fe62-bccf-4782-bc08-838ef904da4d" />
 
 ##Conclusion & improvements
-...
+There are some large errors due to very high salaries.
