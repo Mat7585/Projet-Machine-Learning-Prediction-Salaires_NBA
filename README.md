@@ -1,8 +1,9 @@
 # NBA Salary Prediction (1985–2018)
 
 ## Objective
-Predict NBA player salaries for a given season using player performance and context from previous seasons.
-From data extraction and cleaning to salary prediction.
+The initial goal of this project was to predict NBA player salaries season by season using player performance and contextual information from previous seasons.
+However, during the data exploration phase, I realized that the dataset contains a mix of season-level variables and career-level variables. Using career-level information to predict a specific season would introduce temporal leakage, as the model would have access to future information.
+To avoid this issue, I reframed the problem and instead predicted the total salary over a player's entire career, using only variables that are consistent with this level of aggregation.
 
 ## Dataset
 - Source: Kaggle — NBA Player Salaries (1985–2018) : https://www.kaggle.com/datasets/ulrikthygepedersen/nba-player-salaries/data?select=salaries_1985to2018.csv
