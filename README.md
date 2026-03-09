@@ -10,24 +10,33 @@ From data extraction and cleaning to salary prediction.
 
 ## Approach
 ### Data preparation
-1/ import datasets and explore
-2/ merge the two datasets `salaries_1985to2018.csv` &  `players.csv`
-3/ The dataset mixes season-level variables (1 row = 1 season) and career-level variables. Using these career variables for a season-level prediction would create temporal leakage (the model “sees” future information). Therefore, the solution is to predict the salary over the entire career. So, only keep the variables that are specific to the entire career and aggregate them when necessary.
-4/ Data cleaning: removed non-informative/redundant columns, standardized data types, and converted key fields (height, weight, draft pick) into model-ready numeric features. Prepared categorical variables for encoding and exported a cleaned dataset for modeling.
-5/ Imputation of missing values using appropriate replacement strategies, and removal of columns with excessive missingness.
-6/ Outlier detection and capping when necessary to limit the impact of extreme values.
-7/ Encoded categorical features into numerical representations (e.g., one-hot encoding) for model compatibility.
+1/ import datasets and explore  
+
+2/ merge the two datasets `salaries_1985to2018.csv` &  `players.csv`  
+
+3/ The dataset mixes season-level variables (1 row = 1 season) and career-level variables. Using these career variables for a season-level prediction would create temporal leakage (the model “sees” future information). Therefore, the solution is to predict the salary over the entire career. So, only keep the variables that are specific to the entire career and aggregate them when necessary.  
+
+4/ Data cleaning: removed non-informative/redundant columns, standardized data types, and converted key fields (height, weight, draft pick) into model-ready numeric features. Prepared categorical variables for encoding and exported a cleaned dataset for modeling.  
+
+5/ Imputation of missing values using appropriate replacement strategies, and removal of columns with excessive missingness.  
+
+6/ Outlier detection and capping when necessary to limit the impact of extreme values.  
+
+7/ Encoded categorical features into numerical representations (e.g., one-hot encoding) for model compatibility.  
+
 
 ...
 
-### Data transformation stage
-...
+
 
 ### Supervised Machine Learning stage
-...
+Je vais tester deux modèles de ML : la régression linéaire et le XGboost
+
+### Data transformation stage
+J'ai testé le log sur Y (transformatioN logarithmique) et le StandarSccaler mais cela n'apporte pas grand chose. 
 
 ### Results
-...
+<img width="797" height="90" alt="image" src="https://github.com/user-attachments/assets/2055fe62-bccf-4782-bc08-838ef904da4d" />
 
 ##Conclusion & improvements
 ...
