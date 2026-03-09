@@ -31,7 +31,7 @@ To avoid this issue, I reframed the problem and instead predicted the total sala
 
 
 ### Supervised Machine Learning stage
-I will test two machine learning models: linear regression and XGBoost.  
+I trained and compared two regression models: Linear Regression and XGBoost.  
 
 ### Data transformation stage
 I tested a log transformation on the target variable (Y) and applied StandardScaler, but it did not significantly improve the results.  
