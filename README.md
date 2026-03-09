@@ -30,10 +30,10 @@ From data extraction and cleaning to salary prediction.
 
 
 ### Supervised Machine Learning stage
-Je vais tester deux modèles de ML : la régression linéaire et le XGboost
+I will test two machine learning models: linear regression and XGBoost.  
 
 ### Data transformation stage
-J'ai testé le log sur Y (transformatioN logarithmique) et le StandarSccaler mais cela n'apporte pas grand chose. 
+I tested a log transformation on the target variable (Y) and applied StandardScaler, but it did not significantly improve the results.  
 
 ### Results
 <img width="797" height="90" alt="image" src="https://github.com/user-attachments/assets/2055fe62-bccf-4782-bc08-838ef904da4d" />
