@@ -2,7 +2,7 @@
 
 ## Objective
 This project predicts total NBA career salary using player-level career information from 1985 to 2018.
-The main challenge was avoiding temporal leakage, since the dataset mixes season-level and career-level variables.
+The main challenge **was avoiding temporal leakage, since the dataset mixes season-level and career-level variables**.
 To solve this, I reframed the problem from season salary prediction to total career salary prediction.
 
 ## Dataset
