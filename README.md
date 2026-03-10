@@ -29,16 +29,11 @@ I trained and compared two regression models: Linear Regression and XGBoost.
 
 ### Data Transformation Stage
 
-I first built a baseline Linear Regression model without any transformation.
+The target variable was highly right-skewed, so I applied a log transformation. StandardScaler did not improve the Linear Regression results, and feature scaling was not needed for XGBoost. Therefore, I kept only the log-transformed target.
 
-Exploratory Data Analysis showed that the target variable (Total_ salary Y) is highly right-skewed :
+The proof of the highly right-skewed:
 <img width="1046" height="880" alt="image" src="https://github.com/user-attachments/assets/43c4300e-62e1-4d6d-97ce-9f0da182c3c1" />
 
-To address this, I tested a log transformation of the target variable. I also applied StandardScaler to the features because several variables have very different scales.
-
-These transformations were tested on the Linear Regression model. Since feature scaling with StandardScaler did not improve the results, only the log transformation of the target variable was retained.
-
-For XGBoost, I kept the log-transformed target variable, while feature scaling was not applied, as it is generally not required for tree-based models.
 
 ### Results
 <img width="676" height="57" alt="image" src="https://github.com/user-attachments/assets/dd3fd0c4-8f32-4848-8985-be3ecb1757c9" />   
@@ -47,7 +42,7 @@ XGBoost + log(y) achieved substantially better performance than Linear Regressio
 
 
 
-### Conclusion & improvements
+## Conclusion & improvements
 <img width="1111" height="881" alt="image" src="https://github.com/user-attachments/assets/dc988116-c4c7-4ed4-a773-569236f27c62" />    
 
 Overall, the XGBoost model with log-transformed target variable achieved the best predictive performance. This is confirmed both by the evaluation metrics and by the prediction plot, where most points lie very close to the 45-degree reference line. This visual alignment indicates that the predicted salaries are generally very close to the actual salaries. Although a few larger deviations remain for the highest salary values, the model captures the overall relationship extremely well and provides reliable predictions. Therefore, XGBoost was retained as the final model for this project.
