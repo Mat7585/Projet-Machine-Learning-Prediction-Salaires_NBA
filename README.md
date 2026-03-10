@@ -36,8 +36,7 @@ The histogram below shows the strong right skew of the target variable:
 
 
 ### Results
-      | Model | RMSE | R² | MAE | Median AE |
-|---|---:|---:|---:|---:|
+      | Model | RMSE | R² | MAE | Median AE |  
 | XGBoost + log(y) | 4,411,183 | 0.9873 | 2,038,471 | 516,751 |
 | Linear Regression + log(y) | 21,410,359 | 0.4739 | 8,901,897 | 2,875,696 |
 
