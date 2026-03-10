@@ -30,16 +30,22 @@ To avoid this issue, I reframed the problem and instead predicted the total sala
 
 
 
-### Supervised Machine Learning stage
-I trained and compared two regression models: Linear Regression and XGBoost.  
+### Supervised Machine Learning Stage
 
-### Data transformation stage
-An exploratory analysis showed that the target variable (Y), corresponding to salaries, follows a highly right-skewed distribution: 
-<img width="1101" height="933" alt="image" src="https://github.com/user-attachments/assets/013f1cc7-485a-4a71-9a8f-3bc7f2d33b3c" />  
+I trained and compared two regression models: Linear Regression and XGBoost.
 
+### Data Transformation Stage
 
+I first built a baseline Linear Regression model without any transformation.
 
-I tested a log transformation on the target variable (Y) and applied StandardScaler, but it did not significantly improve the results.  
+Exploratory Data Analysis showed that the target variable (salary) is highly right-skewed:
+<img width="1046" height="880" alt="image" src="https://github.com/user-attachments/assets/43c4300e-62e1-4d6d-97ce-9f0da182c3c1" />
+
+To address this, I tested a log transformation of the target variable. I also applied StandardScaler to the features because several variables have very different scales.
+
+These transformations were tested on the Linear Regression model, but they did not lead to a significant improvement in performance.
+
+For XGBoost, I kept the log-transformed target variable, while feature scaling was not applied, as it is generally not required for tree-based models.
 
 ### Results
 <img width="797" height="90" alt="image" src="https://github.com/user-attachments/assets/2055fe62-bccf-4782-bc08-838ef904da4d" />
