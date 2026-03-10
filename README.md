@@ -34,6 +34,11 @@ To avoid this issue, I reframed the problem and instead predicted the total sala
 I trained and compared two regression models: Linear Regression and XGBoost.  
 
 ### Data transformation stage
+An exploratory analysis showed that the target variable (Y), corresponding to salaries, follows a highly right-skewed distribution: 
+<img width="1101" height="933" alt="image" src="https://github.com/user-attachments/assets/013f1cc7-485a-4a71-9a8f-3bc7f2d33b3c" />  
+
+
+
 I tested a log transformation on the target variable (Y) and applied StandardScaler, but it did not significantly improve the results.  
 
 ### Results
