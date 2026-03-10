@@ -8,22 +8,18 @@ To solve this, I reframed the problem from season salary prediction to total car
 ## Dataset
 - Source: Kaggle — NBA Player Salaries (1985–2018) : https://www.kaggle.com/datasets/ulrikthygepedersen/nba-player-salaries/data?select=salaries_1985to2018.csv
 - Main files: `salaries_1985to2018.csv` &  `players.csv`
+- includes player salary history and player information
+- mixes season-level and career-level variables
 
 ## Approach
 ### Data preparation
-1/ import datasets and explore  
-
-2/ merge the two datasets `salaries_1985to2018.csv` &  `players.csv`  
-
-3/ The dataset mixes season-level variables (1 row = 1 season) and career-level variables. Using these career variables for a season-level prediction would create temporal leakage (the model “sees” future information). Therefore, the solution is to predict the salary over the entire career. So, only keep the variables that are specific to the entire career and aggregate them when necessary.  
-
-4/ Data cleaning: removed non-informative/redundant columns, standardized data types, and converted key fields (height, weight, draft pick) into model-ready numeric features. Prepared categorical variables for encoding and exported a cleaned dataset for modeling.  
-
-5/ Imputation of missing values using appropriate replacement strategies, and removal of columns with excessive missingness.  
-
-6/ Outlier detection and capping when necessary to limit the impact of extreme values.  
-
-7/ Applied one-hot encoding to categorical features for the Linear Regression model. This preprocessing was not necessary for XGBoost, as it can handle categorical features natively when enable_categorical=True is used.
+import datasets and explore  
+merge the two datasets `salaries_1985to2018.csv` &  `players.csv`  
+Only keep the variables that are specific to the entire career and aggregate them when necessary.  
+Data cleaning
+Imputation of missing values using appropriate replacement strategies, and removal of columns with excessive missingness.  
+Outlier detection and capping when necessary to limit the impact of extreme values.  
+Applied one-hot encoding to categorical features for the Linear Regression model. This preprocessing was not necessary for XGBoost, as it can handle categorical features natively when enable_categorical=True is used.
 
 
 
