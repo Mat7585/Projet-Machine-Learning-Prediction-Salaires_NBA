@@ -49,3 +49,16 @@ XGBoost + log(y) achieved substantially better performance than Linear Regressio
 <img width="1111" height="881" alt="image" src="https://github.com/user-attachments/assets/dc988116-c4c7-4ed4-a773-569236f27c62" />    
 
 XGBoost achieved the best overall performance. Most points in the prediction plot lie close to the 45-degree reference line, indicating strong agreement between predicted and actual salaries. A few points corresponding to the highest salaries are slightly farther from the line, **suggesting that extreme values are harder to predict**. Overall, the model performs well and provides reliable predictions.
+
+
+Projet-Machine-Learning-Prediction-Salaires_NBA/
+├─ README.md
+├─ data/
+│  ├─ salaries_1985to2018.csv
+│  └─ players.csv
+├─ notebooks/
+│  └─ nba_salary_prediction.ipynb
+├─ assets/
+│  ├─ salary_distribution.png
+│  └─ predicted_vs_actual_xgboost.png
+└─ requirements.txt
