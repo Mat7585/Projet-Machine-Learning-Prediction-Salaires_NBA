@@ -45,7 +45,7 @@ XGBoost + log(y) achieved substantially better performance than Linear Regressio
 
 
 
-## Conclusion & improvements
+## Conclusion
 <img width="1111" height="881" alt="image" src="https://github.com/user-attachments/assets/dc988116-c4c7-4ed4-a773-569236f27c62" />    
 
 Overall, the XGBoost model with log-transformed target variable achieved the best predictive performance. This is confirmed both by the evaluation metrics and by the prediction plot, where most points lie very close to the 45-degree reference line. This visual alignment indicates that the predicted salaries are generally very close to the actual salaries. Although **a few larger deviations remain for the highest salary values**, the model captures the overall relationship extremely well and provides reliable predictions. Therefore, XGBoost was retained as the final model for this project.
