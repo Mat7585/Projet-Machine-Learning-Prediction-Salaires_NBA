@@ -8,18 +8,18 @@ To solve this, I reframed the problem from season salary prediction to total car
 ## Dataset
 - Source: Kaggle — NBA Player Salaries (1985–2018) : https://www.kaggle.com/datasets/ulrikthygepedersen/nba-player-salaries/data?select=salaries_1985to2018.csv
 - Main files: `salaries_1985to2018.csv` &  `players.csv`
-- includes player salary history and player information
-- mixes season-level and career-level variables
+- Contains player salary history and player information
+- Combines season-level and career-level variables
 
 ## Approach
 ### Data preparation
-import datasets and explore  
-merge the two datasets `salaries_1985to2018.csv` &  `players.csv`  
-Only keep the variables that are specific to the entire career and aggregate them when necessary.  
-Data cleaning
-Imputation of missing values using appropriate replacement strategies, and removal of columns with excessive missingness.  
-Outlier detection and capping when necessary to limit the impact of extreme values.  
-Applied one-hot encoding to categorical features for the Linear Regression model. This preprocessing was not necessary for XGBoost, as it can handle categorical features natively when enable_categorical=True is used.
+- Imported and explored both datasets
+- Merged salaries_1985to2018.csv and players.csv
+- Kept only career-level variables and aggregated features when needed
+- Cleaned the data, imputed missing values, and removed columns with excessive missingness
+- Detected and capped outliers to reduce the impact of extreme values
+- Applied one-hot encoding for Linear Regression
+- Kept native categorical handling for XGBoost when applicable
 
 
 
