@@ -26,9 +26,6 @@ To avoid this issue, I reframed the problem and instead predicted the total sala
 7/ Applied one-hot encoding to categorical features for the Linear Regression model. This preprocessing was not necessary for XGBoost, as it can handle categorical features natively when enable_categorical=True is used.
 
 
-...
-
-
 
 ### Supervised Machine Learning Stage
 
