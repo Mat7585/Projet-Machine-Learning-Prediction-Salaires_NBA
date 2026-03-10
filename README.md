@@ -31,7 +31,7 @@ I trained and compared two regression models: Linear Regression and XGBoost.
 
 I first built a baseline Linear Regression model without any transformation.
 
-Exploratory Data Analysis showed that the target variable (salary) is highly right-skewed:
+Exploratory Data Analysis showed that the target variable (salary) is highly right-skewed :
 <img width="1046" height="880" alt="image" src="https://github.com/user-attachments/assets/43c4300e-62e1-4d6d-97ce-9f0da182c3c1" />
 
 To address this, I tested a log transformation of the target variable. I also applied StandardScaler to the features because several variables have very different scales.
