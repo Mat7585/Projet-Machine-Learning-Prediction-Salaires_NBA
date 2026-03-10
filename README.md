@@ -43,12 +43,16 @@ Exploratory Data Analysis showed that the target variable (salary) is highly rig
 
 To address this, I tested a log transformation of the target variable. I also applied StandardScaler to the features because several variables have very different scales.
 
-These transformations were tested on the Linear Regression model, but they did not lead to a significant improvement in performance.
+These transformations were tested on the Linear Regression model. Since feature scaling with StandardScaler did not improve the results, only the log transformation of the target variable was retained.
 
 For XGBoost, I kept the log-transformed target variable, while feature scaling was not applied, as it is generally not required for tree-based models.
 
 ### Results
-<img width="797" height="90" alt="image" src="https://github.com/user-attachments/assets/2055fe62-bccf-4782-bc08-838ef904da4d" />
+<img width="676" height="57" alt="image" src="https://github.com/user-attachments/assets/dd3fd0c4-8f32-4848-8985-be3ecb1757c9" />  
+XGBoost + log(y) achieved substantially better performance than Linear Regression + log(y) across all evaluation metrics. It obtained a much lower RMSE, MAE, and Median Absolute Error, indicating smaller prediction errors overall, while its much higher R² shows that it explains a far greater share of the variance in salary.
 
-##Conclusion & improvements
-There are some large errors due to very high salaries.
+
+
+###Conclusion & improvements
+<img width="1111" height="881" alt="image" src="https://github.com/user-attachments/assets/dc988116-c4c7-4ed4-a773-569236f27c62" />  
+Overall, the XGBoost model with log-transformed target variable achieved the best predictive performance. This is confirmed both by the evaluation metrics and by the prediction plot, where most points lie very close to the 45-degree reference line. This visual alignment indicates that the predicted salaries are generally very close to the actual salaries. Although a few larger deviations remain for the highest salary values, the model captures the overall relationship extremely well and provides reliable predictions. Therefore, XGBoost was retained as the final model for this project.
