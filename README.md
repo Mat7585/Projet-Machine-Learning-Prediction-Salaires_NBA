@@ -38,11 +38,11 @@ The histogram below shows the strong right skew of the target variable:
 ### Results
 <img width="676" height="57" alt="image" src="https://github.com/user-attachments/assets/dd3fd0c4-8f32-4848-8985-be3ecb1757c9" />   
 
-XGBoost + log(y) achieved substantially better performance than Linear Regression + log(y) across all evaluation metrics. It obtained a much lower RMSE, MAE, and Median Absolute Error, indicating smaller prediction errors overall, while its much higher R² shows that it explains a far greater share of the variance in salary.
+XGBoost + log(y) achieved substantially better performance than Linear Regression + log(y) across all evaluation metrics. It obtained a much lower RMSE, MAE, and Median Absolute Error, indicating **smaller prediction errors overall**, while its much higher R² shows that it explains a far **greater share of the variance in salary**.
 
 
 
 ## Conclusion & improvements
 <img width="1111" height="881" alt="image" src="https://github.com/user-attachments/assets/dc988116-c4c7-4ed4-a773-569236f27c62" />    
 
-Overall, the XGBoost model with log-transformed target variable achieved the best predictive performance. This is confirmed both by the evaluation metrics and by the prediction plot, where most points lie very close to the 45-degree reference line. This visual alignment indicates that the predicted salaries are generally very close to the actual salaries. Although a few larger deviations remain for the highest salary values, the model captures the overall relationship extremely well and provides reliable predictions. Therefore, XGBoost was retained as the final model for this project.
+Overall, the XGBoost model with log-transformed target variable achieved the best predictive performance. This is confirmed both by the evaluation metrics and by the prediction plot, where most points lie very close to the 45-degree reference line. This visual alignment indicates that the predicted salaries are generally very close to the actual salaries. Although **a few larger deviations remain for the highest salary values**, the model captures the overall relationship extremely well and provides reliable predictions. Therefore, XGBoost was retained as the final model for this project.
