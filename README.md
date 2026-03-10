@@ -36,9 +36,9 @@ The histogram below shows the strong right skew of the target variable:
 
 
 ### Results
-        **Model	                    RMSE	        R²	    MAE	       Median AE**
-*XGBoost + log(y)	                  4,411,183	    0.9873	2,038,471	 516,751*
-*Linear Regression + log(y)	        21,410,359	  0.4739	8,901,897	 2,875,696*
+        Model	                    RMSE	        R²	    MAE	       Median AE
+XGBoost + log(y)	                  4,411,183	    0.9873	2,038,471	 516,751
+Linear Regression + log(y)	        21,410,359	  0.4739	8,901,897	 2,875,696
 
 XGBoost + log(y) achieved substantially better performance than Linear Regression + log(y) across all evaluation metrics. It obtained a much lower RMSE, MAE, and Median Absolute Error, indicating **smaller prediction errors overall**, while its much higher R² shows that it explains a far **greater share of the variance in salary**.
 
