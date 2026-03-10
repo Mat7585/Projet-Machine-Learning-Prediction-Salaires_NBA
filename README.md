@@ -27,11 +27,11 @@ To solve this, I reframed the problem from season salary prediction to total car
 
 I trained and compared two regression models: Linear Regression and XGBoost.
 
-### Data Transformation Stage
+### Data transformations
 
 The target variable was highly right-skewed, so I applied a log transformation. StandardScaler did not improve the Linear Regression results, and feature scaling was not needed for XGBoost. Therefore, I kept only the log-transformed target.
 
-The proof of the highly right-skewed:
+The histogram below shows the strong right skew of the target variable:  
 <img width="1046" height="880" alt="image" src="https://github.com/user-attachments/assets/43c4300e-62e1-4d6d-97ce-9f0da182c3c1" />
 
 
