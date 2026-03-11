@@ -51,7 +51,9 @@ XGBoost + log(y) a obtenu des performances **nettement supérieures à celles de
 
 
 
-## Conclusion
+## Conclusion et enseignement
 <img width="1111" height="881" alt="image" src="https://github.com/user-attachments/assets/dc988116-c4c7-4ed4-a773-569236f27c62" />    
 
-XGBoost a obtenu les meilleures performances globales. La plupart des points du graphique de prédiction se situent près de la ligne de référence à 45 degrés, ce qui indique une forte concordance entre les salaires prédits et les salaires réels. Quelques points correspondant aux salaires les plus élevés sont légèrement plus éloignés de cette ligne, **ce qui suggère que les valeurs extrêmes sont plus difficiles à prédire**. Globalement, le modèle est performant et fournit des prédictions fiables.
+XGBoost a obtenu les meilleures performances globales. La plupart des points du graphique de prédiction se situent près de la ligne de référence à 45 degrés, ce qui indique une forte concordance entre les salaires prédits et les salaires réels. Quelques points correspondant aux salaires les plus élevés sont légèrement plus éloignés de cette ligne, **ce qui suggère que les valeurs extrêmes sont plus difficiles à prédire**. Globalement, le modèle est performant et fournit des prédictions fiables.  
+
+Ce projet montre qu’une bonne compréhension de la problématique est essentielle pour construire une analyse pertinente, identifier les limites du jeu de données et ajuster l’approche si nécessaire.
