@@ -1,64 +1,53 @@
-# NBA Salary Prediction (1985–2018)
+# Prédiction du salaire total en carrière en NBA (1985–2018)
 
-## Objective
-This project predicts total NBA career salary using player-level career information from 1985 to 2018.
-The main challenge **was avoiding temporal leakage, since the dataset mixes season-level and career-level variables**.
-To solve this, I reframed the problem from season salary prediction to total career salary prediction.
+## Objectif
+Ce projet vise à prédire le salaire total gagné au cours de la carrière d’un joueur NBA à partir d’informations individuelles sur les joueurs, entre 1985 et 2018.
+Le principal défi était d’éviter la fuite temporelle (temporal leakage), car le jeu de données mélange des variables au niveau de la saison et des variables au niveau de la carrière.
+**Pour résoudre ce problème, j’ai reformulé l’objectif : au lieu de prédire le salaire par saison, j’ai choisi de prédire le salaire total en carrière**.
 
 ## Dataset
-- Source: Kaggle — NBA Player Salaries (1985–2018) : https://www.kaggle.com/datasets/ulrikthygepedersen/nba-player-salaries/data?select=salaries_1985to2018.csv
-- Main files: `salaries_1985to2018.csv` &  `players.csv`
-- Contains player salary history and player information
-- Combines season-level and career-level variables
+- Source : Kaggle — NBA Player Salaries (1985–2018) : https://www.kaggle.com/datasets/ulrikthygepedersen/nba-player-salaries/data?select=salaries_1985to2018.csv  
+- Fichiers principaux : salaries_1985to2018.csv et players.csv
+- Contient l’historique des salaires des joueurs, les informations d’identification et biographiques ainsi que les statistiques cumulées de carrière.
+- Combine des variables au niveau de la saison et au niveau de la carrière  
 
-## Approach
-### Data preparation
-- Imported and explored both datasets
-- Merged salaries_1985to2018.csv and players.csv
-- Kept only career-level variables and aggregated features when needed
-- Cleaned the data, imputed missing values, and removed columns with excessive missingness
-- Detected and capped outliers to reduce the impact of extreme values
-- Applied one-hot encoding for Linear Regression
-- Kept native categorical handling for XGBoost when applicable
+## Approche
+### Préparation des données
+- Importation et exploration des deux jeux de données
+- Fusion de salaries_1985to2018.csv et players.csv
+- Conservation uniquement des variables au niveau de la carrière, avec agrégation de certaines caractéristiques liées à des saisons spécifiques lorsque nécessaire
+- Nettoyage des données, imputation des valeurs manquantes et suppression des colonnes présentant trop de valeurs manquantes
+- Détection et plafonnement des valeurs extrêmes afin de limiter l’impact des outliers
+- Application du one-hot encoding (numérisation des variables catégorielles) pour la régression linéaire
+- Conservation de la gestion native des variables catégorielles pour XGBoost lorsque cela était possible
 
 
 
-### Modeling
+### Modélisation
 
-I trained and compared two regression models: Linear Regression and XGBoost.
+J’ai entraîné et comparé deux modèles de régression : la régression linéaire, choisie comme baseline simple et interprétable, et XGBoost, sélectionné pour sa plus grande flexibilité et sa capacité à modéliser des relations plus complexes.  
 
-### Data transformations
+### Transformations des données
 
-The target variable was highly right-skewed, so I applied a log transformation. StandardScaler did not improve the Linear Regression results, and feature scaling was not needed for XGBoost. Therefore, I kept only the log-transformed target.
-
-The histogram below shows the strong right skew of the target variable:  
+La variable cible (variable Y "Total_salary") était fortement asymétrique à droite:  
 <img width="1046" height="880" alt="image" src="https://github.com/user-attachments/assets/43c4300e-62e1-4d6d-97ce-9f0da182c3c1" />
+J’ai donc appliqué une transformation logarithmique sur la variable "Total_salary" qui permet de réduire l’asymétrie de la variable cible, de limiter l’effet des valeurs extrêmes et de rendre la modélisation plus stable. 
+J’ai également testé l’application d’un StandardScaler pour la régression linéaire, mais cette mise à l’échelle n’a pas permis d’améliorer les performances du modèle. Cette dernière n'est pas nécessaire pour XGBoost qui est génralement peu sensible à l'écart des échelles. **J’ai donc conservé uniquement la transformation logarithmique de la variable cible**.
 
 
-### Results
+
+
+### Résultats
 | Model | RMSE | R² | MAE | Median AE |
 |---|---:|---:|---:|---:|
 | XGBoost + log(y) | 4411183 | 0.9873 | 2038471 | 516751 |
 | Linear Regression + log(y) | 21410359 | 0.4739 | 8901897 | 2875696 |
 
-XGBoost + log(y) achieved substantially better performance than Linear Regression + log(y) across all evaluation metrics. It obtained a much lower RMSE, MAE, and Median Absolute Error, indicating **smaller prediction errors overall**, while its much higher R² shows that it explains a far **greater share of the variance in salary**.
+XGBoost + log(y) a obtenu des performances nettement supérieures à celles de la régression linéaire + log(y) sur l’ensemble des métriques d’évaluation. Il présente un RMSE, un MAE et une erreur absolue médiane beaucoup plus faibles, **ce qui indique des erreurs de prédiction globalement plus faibles**, tandis que son R² beaucoup plus élevé montre qu’**il explique une part bien plus importante de la variance des salaires**.
 
 
 
 ## Conclusion
 <img width="1111" height="881" alt="image" src="https://github.com/user-attachments/assets/dc988116-c4c7-4ed4-a773-569236f27c62" />    
 
-XGBoost achieved the best overall performance. Most points in the prediction plot lie close to the 45-degree reference line, indicating strong agreement between predicted and actual salaries. A few points corresponding to the highest salaries are slightly farther from the line, **suggesting that extreme values are harder to predict**. Overall, the model performs well and provides reliable predictions.
-
-
-Projet-Machine-Learning-Prediction-Salaires_NBA/
-├─ README.md
-├─ data/
-│  ├─ salaries_1985to2018.csv
-│  └─ players.csv
-├─ notebooks/
-│  └─ nba_salary_prediction.ipynb
-├─ assets/
-│  ├─ salary_distribution.png
-│  └─ predicted_vs_actual_xgboost.png
-└─ requirements.txt
+XGBoost a obtenu les meilleures performances globales. La plupart des points du graphique de prédiction se situent près de la ligne de référence à 45 degrés, ce qui indique une forte concordance entre les salaires prédits et les salaires réels. Quelques points correspondant aux salaires les plus élevés sont légèrement plus éloignés de cette ligne, **ce qui suggère que les valeurs extrêmes sont plus difficiles à prédire**. Globalement, le modèle est performant et fournit des prédictions fiables.
