@@ -47,7 +47,7 @@ J’ai également testé l’application d’un StandardScaler pour la régressi
 | XGBoost + log(y) | 4411183 | 0.9873 | 2038471 | 516751 |
 | Linear Regression + log(y) | 21410359 | 0.4739 | 8901897 | 2875696 |
 
-XGBoost + log(y) a obtenu des performances nettement supérieures à celles de la régression linéaire + log(y) sur l’ensemble des métriques d’évaluation. Il présente un RMSE, un MAE et une erreur absolue médiane beaucoup plus faibles, **ce qui indique des erreurs de prédiction globalement plus faibles**, tandis que son R² beaucoup plus élevé montre qu’**il explique une part bien plus importante de la variance des salaires**.
+XGBoost + log(y) a obtenu des performances **nettement supérieures à celles de la régression linéaire + log(y)** sur l’ensemble des métriques d’évaluation. Il présente un RMSE, un MAE et une erreur absolue médiane beaucoup plus faibles, **ce qui indique des erreurs de prédiction globalement plus faibles**, tandis que son R² beaucoup plus élevé montre qu’**il explique une part bien plus importante de la variance des salaires**.
 
 
 
