@@ -1,9 +1,8 @@
 # Prédiction du salaire total en carrière en NBA (1985–2018)
 
 ## Objectif
-Ce projet vise à prédire le salaire total gagné au cours de la carrière d’un joueur NBA à partir d’informations individuelles sur les joueurs, entre 1985 et 2018.
-Le principal défi était d’éviter la fuite temporelle (temporal leakage), car le jeu de données mélange des variables au niveau de la saison et des variables au niveau de la carrière.
-**Pour résoudre ce problème, j’ai reformulé l’objectif : au lieu de prédire le salaire par saison, j’ai choisi de prédire le salaire total en carrière**.
+L’objectif initial était de prédire le salaire des joueurs saison par saison. Toutefois, l’analyse du jeu de données a révélé un problème de fuite temporelle, car il mélangeait des variables au niveau de la saison et des variables au niveau de la carrière, ce qui rendait cette approche non pertinente.  
+**J’ai donc redéfini l’objectif pour prédire le salaire total en carrière**, dans un cadre plus cohérent sur le plan méthodologique.
 
 ## Dataset
 - Source : Kaggle — NBA Player Salaries (1985–2018) : https://www.kaggle.com/datasets/ulrikthygepedersen/nba-player-salaries/data?select=salaries_1985to2018.csv  
